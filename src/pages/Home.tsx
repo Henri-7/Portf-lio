@@ -31,7 +31,7 @@ export default function Home() {
     </section>
 
     <section id="projetos" className="projects-section section-space" aria-labelledby="projects-title"><div className="container">
-      <div className="section-heading projects-heading" data-reveal><h2 id="projects-title">Projetos em destaque</h2></div>
+      <div className="section-heading projects-heading" data-reveal><h2 id="projects-title">PROJETOS</h2></div>
       <div className="project-grid">{projects.map((project) => <article key={project.slug} className={`project-card project-${project.slug}`} data-reveal aria-labelledby={`${project.slug}-title`}>
         <Link to={`/projetos/${project.slug}`} className="project-image-link" aria-label={`Ver estudo de caso de ${project.name}`}><ProjectVisual project={project} /></Link>
         <div className="project-card-body">
