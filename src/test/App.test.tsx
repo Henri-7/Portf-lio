@@ -56,27 +56,27 @@ describe('Navegação e conteúdo', () => {
     expect(document.querySelector('form')).toBeNull()
   })
 
-  it('apresenta os três projetos e recomenda o próximo estudo de caso', async () => {
+  it('apresenta os três projetos e oferece retorno à lista no estudo de caso', async () => {
     const user = userEvent.setup()
     open()
     expect(screen.getAllByRole('article')).toHaveLength(3)
     expect(screen.getByRole('heading', { name: 'NeuroLab Digital' })).toBeTruthy()
     await user.click(screen.getAllByRole('link', { name: /Conhecer o projeto/ })[0])
     expect(document.querySelector('.next-project a[href="/projetos/algorix"]')).toBeNull()
-    expect(screen.getByRole('link', { name: 'Barbearia Elite' }).getAttribute('href')).toBe('/projetos/barbearia-elite')
+    expect(screen.getByRole('link', { name: 'Ver outros projetos' }).getAttribute('href')).toBe('/#projetos')
   })
 
-  it('abre a Barbearia Elite com o site correto e permite continuar para NeuroLab Digital', async () => {
+  it('abre a Barbearia Elite com o site correto e permite voltar à lista', async () => {
     const user = userEvent.setup()
     open()
     await user.click(screen.getByRole('link', { name: 'Ver estudo de caso de Barbearia Elite' }))
     expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('Barbearia Elite')
     expect(screen.getByRole('link', { name: /Acessar site/ }).getAttribute('href')).toBe('https://site-barbeiro-eight.vercel.app/')
-    expect(screen.getByRole('link', { name: 'NeuroLab Digital' }).getAttribute('href')).toBe('/projetos/neurolab-digital')
+    expect(screen.getByRole('link', { name: 'Ver outros projetos' }).getAttribute('href')).toBe('/#projetos')
     expect(document.querySelector('a[href*="github.com"]')).toBeNull()
   })
 
-  it('abre o NeuroLab Digital com seu escopo educativo e fecha o ciclo de navegação no ALGORIX', async () => {
+  it('mantém o contexto do NeuroLab Digital no encerramento e retorna à lista', async () => {
     const user = userEvent.setup()
     open()
     await user.click(screen.getByRole('link', { name: 'Ver estudo de caso de NeuroLab Digital' }))
@@ -84,8 +84,11 @@ describe('Navegação e conteúdo', () => {
     expect(screen.getByText('Projeto acadêmico publicado')).toBeTruthy()
     expect(screen.getByText(/As simulações não medem dopamina/)).toBeTruthy()
     expect(screen.getByRole('link', { name: /Acessar site/ }).getAttribute('href')).toBe('https://neurolab-digital.vercel.app/')
-    expect(screen.getByRole('link', { name: 'ALGORIX' }).getAttribute('href')).toBe('/projetos/algorix')
+    expect(screen.queryByRole('link', { name: 'ALGORIX' })).toBeNull()
     await waitFor(() => expect(document.title).toContain('NeuroLab Digital'))
+    await user.click(screen.getByRole('link', { name: 'Ver outros projetos' }))
+    expect(screen.getAllByRole('article')).toHaveLength(3)
+    await waitFor(() => expect(document.activeElement?.id).toBe('projetos'))
   })
 
   it('trata caminhos desconhecidos, inclusive projetos inexistentes', () => {

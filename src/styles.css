@@ -105,8 +105,9 @@
   .case-section li + li { margin-top: 8px; }
 
   .next-project { background: #e8ebe3; padding-block: 65px; }
-  .next-project .project-next { display: flex; justify-content: space-between; align-items: center; gap: 30px; font-family: var(--sans); font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -.035em; margin-top: 25px; }
+  .next-project .project-next { display: flex; justify-content: space-between; align-items: center; gap: 30px; font-family: var(--sans); font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -.035em; }
   .next-project .project-next > .arrow { width: 48px; height: 48px; }
+  .next-project .button { margin-top: 24px; }
   .not-found { min-height: 70vh; padding-block: 90px; }
   .not-found h1 { max-width: 800px; font-size: clamp(36px, 6vw, 72px); margin-block: 30px; }
   .not-found > p:not(.eyebrow) { color: var(--muted); max-width: 470px; margin-bottom: 35px; }
