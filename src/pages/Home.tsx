@@ -32,12 +32,15 @@ export default function Home() {
 
     <section id="projetos" className="projects-section section-space" aria-labelledby="projects-title"><div className="container">
       <div className="section-heading projects-heading" data-reveal><h2 id="projects-title">Projetos em destaque</h2></div>
-      {projects.map((project) => <article key={project.slug} className={`project-feature project-${project.slug}`} data-reveal aria-labelledby={`${project.slug}-title`}>
-        <h3 className="project-name" id={`${project.slug}-title`}><Link to={`/projetos/${project.slug}`}>{project.name}</Link></h3>
-        <ul className="tags" aria-label="Tecnologias">{project.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul>
+      <div className="project-grid">{projects.map((project) => <article key={project.slug} className={`project-card project-${project.slug}`} data-reveal aria-labelledby={`${project.slug}-title`}>
         <Link to={`/projetos/${project.slug}`} className="project-image-link" aria-label={`Ver estudo de caso de ${project.name}`}><ProjectVisual project={project} /></Link>
-        <div className="project-description"><p>{project.summary}</p><ProjectLinks project={project} includeCase /></div>
-      </article>)}
+        <div className="project-card-body">
+          <h3 className="project-name" id={`${project.slug}-title`}><Link to={`/projetos/${project.slug}`}>{project.name}</Link></h3>
+          <p className="project-summary">{project.summary}</p>
+          <ul className="tags" aria-label="Tecnologias">{project.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul>
+          <ProjectLinks project={project} includeCase />
+        </div>
+      </article>)}</div>
     </div></section>
 
     <section className="services section-space" aria-labelledby="services-title"><div className="container services-layout"><div className="services-intro" data-reveal><h2 id="services-title">Desenvolvimento web</h2></div><div className="service-list">{services.map(service => <div className="service-item" key={service.title} data-reveal><h3>{service.title}</h3><p>{service.text}</p></div>)}</div><Link className="button button-primary services-cta" to="/#contato">Conversar sobre um projeto<Arrow /></Link></div></section>
