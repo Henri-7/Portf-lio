@@ -1,6 +1,6 @@
 # Henrique Rodrigues — Portfólio
 
-React, Vite, TypeScript e CSS. Identidade Graphite & Sage, com DM Sans para títulos, textos e interface e Newsreader no nome e na assinatura. Inclui Home, estudos de caso de ALGORIX e Barbearia Elite e página 404.
+React, Vite, TypeScript e CSS. Identidade Graphite & Sage, com DM Sans para títulos, textos e interface e Newsreader no nome e na assinatura. Inclui Home, estudos de caso de ALGORIX, Barbearia Elite e NeuroLab Digital e página 404.
 
 ## Executar
 
@@ -24,7 +24,7 @@ npm run preview
 ## Atualizar conteúdo
 
 - `src/data/site.ts`: e-mail, LinkedIn, currículo e domínio definitivo. Campos vazios ficam ocultos. A adição de e-mail habilita o link direto de contato.
-- `src/data/projects.ts`: catálogo público, conteúdo e links de ALGORIX e Barbearia Elite. Novos projetos podem ser adicionados à mesma estrutura.
+- `src/data/projects.ts`: catálogo público, conteúdo e links de ALGORIX, Barbearia Elite e NeuroLab Digital. Novos projetos podem ser adicionados à mesma estrutura.
 - `src/styles.css`: identidade, componentes compartilhados e estudos de caso.
 - `src/home.css`: composição editorial da Home e adaptações para tablet e celular.
 - `src/pages/CaseStudy.tsx`: estrutura reutilizável dos estudos de caso.
@@ -32,6 +32,8 @@ npm run preview
 A foto fornecida foi apenas redimensionada e comprimida em WebP. A captura real do ALGORIX veio do [repositório do projeto](https://github.com/Henri-7/ALGORIX/blob/main/docs/identidade-evidencias/home-desktop.jpg).
 
 A captura da Barbearia Elite foi obtida do site publicado. Seu estudo de caso usa informações do [repositório público](https://github.com/Henri-7/site-barbeiro), sem expor links do GitHub na interface do portfólio.
+
+O NeuroLab Digital usa uma captura real do [site publicado](https://neurolab-digital.vercel.app/), indicado pelo usuário. Os recursos foram conferidos na Home e no laboratório públicos; React, TypeScript e Vite também estão no [frontend público](https://github.com/Henri-7/Front). É apresentado como projeto acadêmico educativo, sem medição biológica ou diagnóstico.
 
 O LinkedIn está configurado como link de contato. E-mail, currículo e domínio ainda precisam ser fornecidos. Preencha `site.url` e substitua o `og:image` de `index.html` por uma URL absoluta ao publicar, para que o compartilhamento social funcione também sem execução de JavaScript. Os metadados específicos dos estudos de caso são atualizados no cliente.
 

@@ -8,7 +8,7 @@ export default function CaseStudy() {
   const { slug } = useParams()
   const project = projects.find(item => item.slug === slug)
   if (!project) return <NotFound />
-  const next = projects.find(item => item.slug !== project.slug)
+  const next = projects.length > 1 ? projects[(projects.indexOf(project) + 1) % projects.length] : undefined
 
   return <main id="main" className="case-page" tabIndex={-1}>
     <section className="case-hero container"><Link className="text-link case-back" to="/#projetos"><Arrow direction="left" />Voltar aos projetos</Link><div className="case-heading"><div><h1>{project.name}</h1><p className="case-intro">{project.introduction}</p></div><div className="case-facts"><div><span>Categoria</span><p>{project.category}</p></div><div><span>Estado do projeto</span><p>{project.status}</p></div><div><span>Tecnologias</span><ul className="tags">{project.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul></div></div></div><ProjectLinks project={project} /></section>
