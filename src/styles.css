@@ -15,7 +15,8 @@
 
 @layer base {
   :root { --ivory: #f4f2ed; --onyx: #191c1b; --graphite: #363c38; --sage: #788c79; --sage-dark: #4d6652; --mineral: #d6d9d2; --muted: #616761; --line: #d4d6ce; --serif: 'Newsreader Variable', Georgia, serif; --sans: 'DM Sans Variable', Arial, sans-serif; --container: 1248px; --gutter: clamp(24px, 5.5vw, 88px); }
-  html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 108px; scrollbar-width: none; }
+  html::-webkit-scrollbar { display: none; }
   body { background: var(--ivory); color: var(--onyx); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
   ::selection { background: #c9d5c5; color: var(--onyx); }
   h1, h2, h3 { font-weight: 500; }
